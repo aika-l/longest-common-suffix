@@ -1,0 +1,19 @@
+function commonSuf(arr) {
+ 	let reverse="";
+	for(let i=0; i<arr.length; i++){
+		reverse += arr[i].split('').reverse().join('')+' '
+	}
+	arr=reverse.trim().split(' ')
+
+
+  max_word = arr.reduce(function(a, b) { return a > b ? a : b });
+  prefix   = arr.reduce(function(a, b) { return a > b ? b : a }); 
+
+  while(max_word.indexOf(prefix) != 0) {
+    prefix = prefix.slice(0, -1);
+  }
+
+  let suf = prefix.split('').reverse().join('') 
+	return suf
+}
+commonSuf(["deforestation", "citation", "conviction", "incarceration"]) // "tion"
